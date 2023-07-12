@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
   <title>College Finder</title>
@@ -109,19 +109,19 @@
     searchForm.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent form submission
 
-      const college = document.getElementById('college').value;
-      const course = document.getElementById('course').value;
+      const college = document.getElementById('COLLEGE').value;
+      const course = document.getElementById('COURSE').value;
       const location = document.getElementById('location').value;
 
       // Call a function or make an AJAX request to fetch the college data based on the selected options
       // Example:
-      const colleges = getColleges(college, course, location);
+      const colleges = getColleges(COLLEGE, COURSE, location);
 
       // Render the college data in the table
       renderColleges(colleges);
     });
 
-    function getColleges(college, course, location) {
+    function getColleges(COLLEGE, COURSE, location) {
       // This is a placeholder function, replace it with your actual logic to fetch the college data
       // You can make an AJAX request to your server or use any other method to retrieve the data
       // Return an array of college objects with name, course, and location properties

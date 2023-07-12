@@ -1,5 +1,4 @@
 
-<!DOCTYPE html>
 <html>
 <head>
   <title>College Finder</title>

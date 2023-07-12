@@ -1,4 +1,5 @@
 
+<!DOCTYPE html>
 <html>
 <head>
   <title>College Finder</title>
@@ -6,7 +7,7 @@
     /* Add some basic styling */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      background-color: AAC001;
       margin: 0;
       padding: 20px;
     }
@@ -59,19 +60,24 @@
     <label for="college">College:</label>
     <select id="college" name="college">
       <option value="">All</option>
-      <option value="college-a">College A</option>
-      <option value="college-b">College B</option>
-      <option value="college-c">College C</option>
+      <option value="college-a">engineering college</option>
+      <option value="college-b">medical College </option>
+      <option value="college-c"> Commerce College </option>
+      <option value="college-d"> Arts college </option>
+      <option value="college-e"> Music And dance college </option>
+      <option value="college-f"> Cinema and entertainment college </option>
       <!-- Add more options as needed -->
     </select>
     <br>
     <label for="course">Course:</label>
     <select id="course" name="course">
       <option value="">All</option>
-      <option value="engineering">Engineering</option>
-      <option value="medical">Medical</option>
-      <option value="commerce">Commerce</option>
-      <option value="art">Art</option>
+      <option value="engineering">B-Tech</option>
+      <option value="medical">MBBS</option>
+      <option value="commerce">BBA</option>
+      <option value="art">BA</option>
+      <option value="music and dance"> Classical dance</option>
+      <option value="cinema and entertainment"> Acting skills </option>
       <!-- Add more options as needed -->
     </select>
     <br>
@@ -82,6 +88,8 @@
       <option value="mumbai">Mumbai</option>
       <option value="noida">Noida</option>
       <option value="bangalore">Bangalore</option>
+      <option value="Chennai"> Chennai</option>
+      <option value="Chandigarh"> Chandigarh</option>
       <!-- Add more options as needed -->
     </select>
     <br>
@@ -126,20 +134,23 @@
       // Return an array of college objects with name, course, and location properties
       // Example:
       const colleges = [
-        { name: 'College A', course: 'Engineering', location: 'Delhi' },
-        { name: 'College B', course: 'Medical', location: 'Mumbai' },
-        { name: 'College C', course: 'Commerce', location: 'Noida' },
+        { name: 'Engineering College ', course: 'B-Tech', location: 'Delhi' },
+        { name: 'Medical College ', course: 'MBBS', location: 'Mumbai' },
+        { name: 'Commerce College ', course: 'BBA', location: 'Noida' },
+        {name: 'ARTS College', course:'BA' ,location: 'Bangalore'},
+        {name: 'music and dance college', course:'Classical dance' , location: 'Chennai'},
+        {name: 'cinema college', course:'Acting skills', location:'Chandigarh'},
       ];
 
       // Apply filters based on the selected options
       if (college) {
-        colleges = colleges.filter(collegeObj => collegeObj.name.toLowerCase() === college.toLowerCase());
+        colleges = colleges.filter(collegeObj = collegeObj.name.toLowerCase() === college.toLowerCase());
       }
       if (course) {
-        colleges = colleges.filter(collegeObj => collegeObj.course.toLowerCase() === course.toLowerCase());
+        colleges = colleges.filter(collegeObj = collegeObj.course.toLowerCase() === course.toLowerCase());
       }
       if (location) {
-        colleges = colleges.filter(collegeObj => collegeObj.location.toLowerCase() === location.toLowerCase());
+        colleges = colleges.filter(collegeObj = collegeObj.location.toLowerCase() === location.toLowerCase());
       }
 
       return colleges;

@@ -56,23 +56,22 @@
 <body>
   <h1>College Finder</h1>
   <form id="search-form">
-    <label for="COLLEGE">COLLEGE:</label>
-    <select id="COLLEGE" name="COLLEGE">
+    <label for="college">College:</label>
+    <select id="college" name="college">
       <option value="">All</option>
-      <option value="Engineering College"> Engineering College </option>
-      <option value=" Medical College "> Medical College </option>
-      <option value="ARTS College"> ARTS College </option>
-      <option value="Commerce College "> Commerce College </option>
+      <option value="college-a">College A</option>
+      <option value="college-b">College B</option>
+      <option value="college-c">College C</option>
       <!-- Add more options as needed -->
     </select>
     <br>
-    <label for="COURSE">COURSE:</label>
-    <select id="COURSE" name="COURSE">
+    <label for="course">Course:</label>
+    <select id="course" name="course">
       <option value="">All</option>
-      <option value="engineering">B-Tech</option>
-      <option value="medical">MBBS</option>
-      <option value="commerce">BBA</option>
-      <option value="art">BA</option>
+      <option value="engineering">Engineering</option>
+      <option value="medical">Medical</option>
+      <option value="commerce">Commerce</option>
+      <option value="art">Art</option>
       <!-- Add more options as needed -->
     </select>
     <br>
@@ -109,28 +108,27 @@
     searchForm.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent form submission
 
-      const college = document.getElementById('COLLEGE').value;
-      const course = document.getElementById('COURSE').value;
+      const college = document.getElementById('college').value;
+      const course = document.getElementById('course').value;
       const location = document.getElementById('location').value;
 
       // Call a function or make an AJAX request to fetch the college data based on the selected options
       // Example:
-      const colleges = getColleges(COLLEGE, COURSE, location);
+      const colleges = getColleges(college, course, location);
 
       // Render the college data in the table
       renderColleges(colleges);
     });
 
-    function getColleges(COLLEGE, COURSE, location) {
+    function getColleges(college, course, location) {
       // This is a placeholder function, replace it with your actual logic to fetch the college data
       // You can make an AJAX request to your server or use any other method to retrieve the data
       // Return an array of college objects with name, course, and location properties
       // Example:
       const colleges = [
-        { name: 'Engineering College', course: 'B-Tech', location: 'Delhi' },
-        { name: 'Medical college', course: 'MBBS', location: 'Mumbai' },
-        { name: 'Commerce college', course: 'BBA', location: 'Noida' },
-         { name: 'ARTS college', course: 'BA', location: 'Bangalore' },
+        { name: 'College A', course: 'Engineering', location: 'Delhi' },
+        { name: 'College B', course: 'Medical', location: 'Mumbai' },
+        { name: 'College C', course: 'Commerce', location: 'Noida' },
       ];
 
       // Apply filters based on the selected options

@@ -6,7 +6,7 @@
     /* Add some basic styling */
     body {
       font-family: Arial, sans-serif;
-      background-color: AAC001;
+      background-color: #AAC001;
       margin: 0;
       padding: 20px;
     }

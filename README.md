@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>College Finder</title>
@@ -55,13 +56,23 @@
 <body>
   <h1>College Finder</h1>
   <form id="search-form">
-    <label for="course">Course:</label>
-    <select id="course" name="course">
+    <label for="COLLEGE">COLLEGE:</label>
+    <select id="COLLEGE" name="COLLEGE">
       <option value="">All</option>
-      <option value="engineering">Engineering</option>
-      <option value="medical">Medical</option>
-      <option value="commerce">Commerce</option>
-      <option value="art">Art</option>
+      <option value="Engineering College"> Engineering College </option>
+      <option value=" Medical College "> Medical College </option>
+      <option value="ARTS College"> ARTS College </option>
+      <option value="Commerce College "> Commerce College </option>
+      <!-- Add more options as needed -->
+    </select>
+    <br>
+    <label for="COURSE">COURSE:</label>
+    <select id="COURSE" name="COURSE">
+      <option value="">All</option>
+      <option value="engineering">B-Tech</option>
+      <option value="medical">MBBS</option>
+      <option value="commerce">BBA</option>
+      <option value="art">BA</option>
       <!-- Add more options as needed -->
     </select>
     <br>
@@ -79,57 +90,72 @@
   </form>
   <div id="college-data">
     <!-- College data will be populated here -->
+    <table id="college-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Course</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
 
   <script>
     const searchForm = document.getElementById('search-form');
-    const collegeData = document.getElementById('college-data');
+    const collegeTable = document.getElementById('college-table');
 
     searchForm.addEventListener('submit', function(event) {
       event.preventDefault(); // Prevent form submission
 
+      const college = document.getElementById('college').value;
       const course = document.getElementById('course').value;
       const location = document.getElementById('location').value;
 
-      // Call a function or make an AJAX request to fetch the college data based on course and location
+      // Call a function or make an AJAX request to fetch the college data based on the selected options
       // Example:
-      const colleges = getColleges(course, location);
+      const colleges = getColleges(college, course, location);
 
       // Render the college data in the table
       renderColleges(colleges);
     });
 
-    function getColleges(course, location) {
+    function getColleges(college, course, location) {
       // This is a placeholder function, replace it with your actual logic to fetch the college data
       // You can make an AJAX request to your server or use any other method to retrieve the data
       // Return an array of college objects with name, course, and location properties
       // Example:
       const colleges = [
-        { name: 'College A', course: 'Engineering', location: 'Delhi' },
-        { name: 'College B', course: 'Medical', location: 'Mumbai' },
-        { name: 'College C', course: 'Commerce', location: 'Noida' },
+        { name: 'Engineering College', course: 'B-Tech', location: 'Delhi' },
+        { name: 'Medical college', course: 'MBBS', location: 'Mumbai' },
+        { name: 'Commerce college', course: 'BBA', location: 'Noida' },
+         { name: 'ARTS college', course: 'BA', location: 'Bangalore' },
       ];
 
-      // Apply filters based on course and location
+      // Apply filters based on the selected options
+      if (college) {
+        colleges = colleges.filter(collegeObj => collegeObj.name.toLowerCase() === college.toLowerCase());
+      }
       if (course) {
-        colleges = colleges.filter(college => college.course === course);
+        colleges = colleges.filter(collegeObj => collegeObj.course.toLowerCase() === course.toLowerCase());
       }
       if (location) {
-        colleges = colleges.filter(college => college.location === location);
+        colleges = colleges.filter(collegeObj => collegeObj.location.toLowerCase() === location.toLowerCase());
       }
 
       return colleges;
     }
 
     function renderColleges(colleges) {
-      let html = '<table>';
-      html += '<tr><th>Name</th><th>Course</th><th>Location</th></tr>';
-      colleges.forEach(college => {
-        html += `<tr><td>${college.name}</td><td>${college.course}</td><td>${college.location}</td></tr>`;
-      });
-      html += '</table>';
+      const tbody = collegeTable.querySelector('tbody');
+      tbody.innerHTML = '';
 
-      collegeData.innerHTML = html;
+      colleges.forEach(college => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${college.name}</td><td>${college.course}</td><td>${college.location}</td>`;
+        tbody.appendChild(row);
+      });
     }
   </script>
 </body>
